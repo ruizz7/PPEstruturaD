@@ -16,6 +16,7 @@ public class Lista {
 	//esse m�todo dever� ser implementado de acordo com o enunciado do exerc�cio
 	private void inserirPrioridade(No aux) {
 		if(inicio == null) {
+			fim=aux;
 			inicio = aux;
 		} else { 
 			if(fim.cor.equalsIgnoreCase(aux.cor)) { 
@@ -34,6 +35,7 @@ public class Lista {
 					No prox_ultimo = aux_f.prox;
 					aux_f.prox = aux;
 					aux.prox = prox_ultimo;
+				
 			}
 			}
 		}
