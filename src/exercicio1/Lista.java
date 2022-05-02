@@ -17,18 +17,24 @@ public class Lista {
 	private void inserirPrioridade(No aux) {
 		if(inicio == null) {
 			inicio = aux;
-		} else {
-			No aux_f = inicio;
-			while(aux_f.prox.cor == aux.cor){
-				aux_f = aux_f.prox;
+		} else { 
+			if(fim.cor.equalsIgnoreCase(aux.cor)) { 
+				fim.prox=aux;
+				fim=aux;
 			}
-			if (aux_f.cor != aux.cor) {
-				inicio = aux;
-				aux.prox = aux_f;
-			} else {
-				No prox_ultimo = aux_f.prox;
-				aux_f.prox = aux;
-				aux.prox = prox_ultimo;
+			else {
+				No aux_f = inicio;
+				while(aux_f.prox.cor.equalsIgnoreCase(aux.cor)){
+					aux_f = aux_f.prox;
+				}
+				if (!aux_f.cor.equalsIgnoreCase(aux.cor)) {
+					inicio = aux;
+					aux.prox = aux_f;
+				} else {
+					No prox_ultimo = aux_f.prox;
+					aux_f.prox = aux;
+					aux.prox = prox_ultimo;
+			}
 			}
 		}
 	}
@@ -41,6 +47,7 @@ public class Lista {
 			inserirFim(aux);
 		} else {
 			inserirPrioridade(aux);
+
 		}
 	}
 	
