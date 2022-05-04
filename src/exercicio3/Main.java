@@ -22,12 +22,9 @@ public class Main {
 	public static void inverter(Lista lista) {
 		Lista lista_inv = new Lista();
 		No aux = lista.fim;
-		boolean acabou_inversao=false;
-		while (!acabou_inversao) {
-			if(aux==null) {
-				break;
-			}
-			lista_inv.inserir(aux.dado);
+		lista.inicio = aux;
+		while(aux != null) {
+			aux.dir = aux.esq;
 			aux = aux.esq;
 		}
 	}
